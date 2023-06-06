@@ -21,11 +21,12 @@ services:
       - "82:80"
     deploy:
        replicas: 3
-       
+
   sweet:
      image: knsk96/sweetreporestaurant:latest
      ports:
        - "83:80"
      deploy:
          replicas: 3
+
 
