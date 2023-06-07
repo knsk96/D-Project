@@ -1,0 +1,23 @@
+sudo yum update -y
+systemctl restart docker
+systemctl status docker
+hostnamectl set-hostname manager
+sudo -i
+docker swarm init --advertise-addr 172.31.84.141
+docker node ls
+vim jenkins.sh
+sh jenkins.sh
+systemctl restart jenkins
+systemctl status jenkins
+ cd  /var/lib/jenkins/workspace/project-push
+ ll
+ cd
+ chmod 777 /var/run/docker.sock
+systemctl daemon-reload
+systemctl restart docker.service
+systemctl status docker.service
+docker images
+docker ps
+docker stack ls
+docker stack ps restaurant
+history
