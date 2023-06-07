@@ -1,0 +1,40 @@
+soup:v1
+starters:v1
+biryani:v1
+sweet:v1
+
+
+knsk96/soupreporestaurant
+knsk96/startersreporestaurant
+knsk96/biryanireporestaurant
+knsk96/sweetreporestaurant
+
+
+
+pipeline {
+    agent any
+    
+    stages {
+        stage('checkout') {
+            steps {
+                git 'https://github.com/knsk96/D-Project.git'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'docker build -t $img .'
+            }
+        }
+        stage('tag') {
+            steps {
+                sh 'docker tag $img $repo'
+            }
+        }
+        stage('push') {
+            steps {
+                sh 'docker login -u knsk96 -p Knsk#1996'
+                sh 'docker push $repo'
+            }
+        }
+    }
+}
