@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('check') {
+            steps {
+                git 'https://github.com/knsk96/D-Project.git'
+            }
+        }
+        stage('stack') {
+            steps {
+                sh 'docker stack deploy -c docker-compose.yml restaurant'
+            }
+        }
+    }
+}
