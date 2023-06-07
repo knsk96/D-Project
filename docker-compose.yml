@@ -2,7 +2,7 @@ version: '3'
 services:
   soup:
     image: knsk96/soupreporestaurant:latest
-     ports:
+    ports:
        - "80:80"
      deploy:
         replicas: 3
